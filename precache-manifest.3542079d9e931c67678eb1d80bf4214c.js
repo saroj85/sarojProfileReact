@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73565e08be66a9e8e7f49c02e2727acf",
+    "revision": "287da5659b8efdbdc88396ca06df79a6",
     "url": "/sarojProfileReact/index.html"
   },
   {
-    "revision": "fb7aead4020d8e1c16ca",
+    "revision": "3bd4bf71caaf002a9860",
     "url": "/sarojProfileReact/static/css/main.fd81a126.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sarojProfileReact/static/js/2.c80b3754.chunk.js"
   },
   {
-    "revision": "fb7aead4020d8e1c16ca",
-    "url": "/sarojProfileReact/static/js/main.87e2ec5e.chunk.js"
+    "revision": "3bd4bf71caaf002a9860",
+    "url": "/sarojProfileReact/static/js/main.690b5bbe.chunk.js"
   },
   {
     "revision": "10546f5bb12f143db27e",
