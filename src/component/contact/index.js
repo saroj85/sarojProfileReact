@@ -44,6 +44,11 @@ const FromWrapper = styled.div`
         }
     }
 
+    .error_msg{
+        color: red;
+        font-size: 12px;
+    }
+
 `;
 
 const Input = styled.input`
@@ -71,7 +76,6 @@ class index extends Component {
             name: "",
             email: "",
             message: "",
-            errorMessage: ""
 
         }
     }
@@ -82,69 +86,90 @@ class index extends Component {
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
-        }, console.log(this.state))
+        }, console.log("hey", this.state))
 
     }
-
-
-// submit btn click check validation 
 
     submitClick = () => {
-
-        // name 
-        if (this.state.name.length < 3) {
-            this.setState({
-                error: true,
-                errorMessage: '** please Enter Your Full Name **'
-            })
-        }
-
-        // email 
-        if (this.state.email < 3 && /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)) {
-            this.setState({
-                error: true,
-                errorMessage: '** please Enter Valid Email Address **'
-            })
-        }
-
-        if (this.state.message < 8) {
-            this.setState({
-                error: true,
-                errorMessage: '** please Enter your Message **'
-            })
-        }
-
-        // document.body.style.overflow = "hidden";
-        // document.body.style.marginRight = "16px";
+         if(this.state.name.length <=2){
+                alert("Please Enter your Full Name")
+                return false
+            }
+            if(!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)){
+                alert("enter Email")
+                return false
+            }
+            if(this.state.message.length <= 5){
+                alert("enter Message")
+                return false
+            }
     }
 
 
-    popUpClose = () => {
-        this.setState({ error: false })
-        document.body.style.overflow = "auto";
-        document.body.style.margin = "0px";
-    }
+ 
+
+    // // submit btn click check validation 
+
+    //     submitClick = () => {
+
+    //         // name 
+    //         if (this.state.name.length < 3) {
+    //             this.setState({
+    //                 nameError: true,
+    //                 errorMessage: '** please Enter Your Full Name **'
+    //             })
+    //         }
+
+    //         // email 
+    //         if (this.state.email < 3 && !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)) {
+    //             this.setState({
+    //                 EmailError: true,
+    //                 errorMessage: '** please Enter Valid Email Address **'
+    //             })
+    //         }
+
+    //         if (this.state.message < 8) {
+    //             this.setState({
+    //                 messageError: true,
+    //                 errorMessage: '** please Enter your Message **'
+    //             })
+    //         }
+    //         else{
+    //             this.setState({
+    //                 EmailError: false,
+    //                 nameError: false,
+    //                 messageError: false,
+    //                 errorMessage: false
+    //             } , () => {
+    //                 alert("Thanks for contacting me !!")
+    //             })
+
+
+    //         }
+
+    //         // document.body.style.overflow = "hidden";
+    //         // document.body.style.marginRight = "16px";
+    //     }
+
+
+
+
 
 
 
     render() {
         return (
             <div>
-                {this.state.error &&
-                    <PopUp effect={this.state.error} error={this.state.error} popUpClose={this.popUpClose}>
-                        <p style={{ color: 'red', textAlign: 'center', fontSize: '16px' }}>
-                            {this.state.errorMessage}
-                        </p>
-                    </PopUp>
-                }
                 <Heading title="contact Me" color="#000" />
-                <Gap h="50px" />
                 <FromWrapper>
                     <Input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.changeHandler} />
+                    {this.state.nameError && <p className="error_msg">{this.state.errorMessage}</p>}
                     <Gap h="10px" />
                     <Input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.changeHandler} />
+                    {this.state.EmailError && <p className="error_msg">{this.state.errorMessage}</p>}
                     <Gap h="10px" />
                     <textarea type="text" name="message" value={this.state.message} placeholder="Message" onChange={this.changeHandler} />
+                    {this.state.messageError && <p className="error_msg">{this.state.errorMessage}</p>}
                     <Gap h="10px" />
                     <button className="send" onClick={this.submitClick}>Send</button>
                     <Gap h="100px" />

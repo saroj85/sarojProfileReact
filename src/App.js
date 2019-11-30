@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {WithRouter} from 'react-router';
 import Header from './component/header';
 import Banner from './component/banner';
 import Portfolio from './component/portfolio';
@@ -7,8 +9,16 @@ import Contact from './component/contact';
 import Footer from './component/footer';
 import Gap from './component/shared/gap';
 import PopUp from './component/shared/popUp';
+import PAGENOTFOUND from './component/notFound';
+
 import styled from 'styled-components';
 import './App.css'
+
+
+
+import HomePages from './pages/home';
+import AboutPages from './pages/about';
+import ContactPages from './pages/contact';
 
 
 
@@ -27,7 +37,7 @@ const BackToTop = styled.div`
 `;
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
 
@@ -36,53 +46,57 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.myRef.current.scrollTo(0, 0);
-    console.log("JJJ", this.myRef.current.clientHeight)
+    // this.myRef.current.scrollTo(0, 0);
+    // console.log("JJJ", this.myRef.current.clientHeight)
 
   }
 
-  ClickNav = () =>{
-    let height = this.myRef.current.clientHeight;
-    console.log("NEW H", height)
-    window.scrollTo(0, 200)
-  }
-  
-  
 
-  scrollStep =() => {
+
+
+  scrollStep = () => {
     if (window.pageYOffset === 0) {
-        clearInterval(this.state.intervalId);
+      clearInterval(this.state.intervalId);
     }
     window.scroll(0, window.pageYOffset - 50);
   }
-  
-  scrollToTop =() =>  {
+
+  scrollToTop = () => {
     let intervalId = setInterval(this.scrollStep, 16.66);
     this.setState({ intervalId: intervalId });
   }
-  
+
 
 
 
   render() {
-    console.log("window.pageYOffset", window.pageYOffset)
+    console.log("propsNew",this.props)
     return (
-      <div className="App">
-       <div  ref={this.myRef}>
-       <Header ClickNav={this.ClickNav}/>
-        <Banner />
-        <Gap h="40px" />
-       </div>
-        <Portfolio />
-        <Gap h="40px" />
-        <About />
-        <Gap h="40px" />
-        <Contact />
-        <Gap h="40px" />
-        <Footer />
-       
-        <BackToTop onClick={this.scrollToTop}><i className="fas fa-angle-up"></i></BackToTop>
-      </div>
+      <Router >
+        <div className="App">
+          <Header/>
+          <Switch>
+            <Route exact path="/">
+              <HomePages />
+            </Route>
+            <Route path="/portfolio">
+              <Gap h="100px" />
+              <Portfolio />
+            </Route>
+            <Route path="/about">
+              <Gap h="40px" />
+              <AboutPages />
+            </Route>
+            <Route path="/contact">
+              <ContactPages />
+            </Route>
+            <Route component={PAGENOTFOUND}></Route>
+          </Switch>
+          <Gap h="40px" />
+          <Footer />
+          <BackToTop onClick={this.scrollToTop}><i className="fas fa-angle-up"></i></BackToTop>
+        </div>
+      </Router>
     );
   }
 }

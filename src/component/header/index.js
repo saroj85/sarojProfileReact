@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from '../Head'
+import { Link } from "react-router-dom";
+
 
 const Header = styled.header`
     width: 100%;
@@ -23,6 +25,9 @@ const LogoWrapper = styled.div`
         color: #fff;
         text-transform: uppercase;
         font-weight: 700;
+        a{
+            color: #fff;
+        }
     }
 `;
 
@@ -50,18 +55,18 @@ const NavListWrapper = styled.div`
 
 
 class index extends Component {
-   
+
     render() {
-        console.log(this.props)
+        console.log("HEADER", this.props)
         return (
             <div>
                 <Header>
-                    <LogoWrapper><span className="logo">Iam,saroj</span></LogoWrapper>
+                    <LogoWrapper><span className="logo"><Link to="/">Iam,saroj</Link></span></LogoWrapper>
                     <NavListWrapper>
                         <ul>
-                            <li onClick={() => this.props.ClickNav()}><a href="#">PORTFOLIO</a></li>
-                            <li><a href="#">ABOUT</a></li>
-                            <li><a href="#">CONTACT</a></li>
+                            <li><Link  to="/portfolio">PORTFOLIO</Link></li>
+                            <li><Link  to="/about">ABOUT</Link></li>
+                            <li><Link  to="/contact">CONTACT</Link></li>
                         </ul>
                     </NavListWrapper>
 
