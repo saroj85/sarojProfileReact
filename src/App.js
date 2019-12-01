@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {WithRouter} from 'react-router';
+import {withRouter} from 'react-router-dom';
 import Header from './component/header';
 import Banner from './component/banner';
 import Portfolio from './component/portfolio';
@@ -76,18 +76,18 @@ class App extends Component {
         <div className="App">
           <Header/>
           <Switch>
-            <Route exact path="/">
+            <Route exact={true} path="/">
               <HomePages />
             </Route>
-            <Route path="/portfolio">
+            <Route  exact path="/portfolio">
               <Gap h="100px" />
               <Portfolio />
             </Route>
-            <Route path="/about">
+            <Route  exact path="/about">
               <Gap h="40px" />
               <AboutPages />
             </Route>
-            <Route path="/contact">
+            <Route  exact path="/contact">
               <ContactPages />
             </Route>
             <Route component={PAGENOTFOUND}></Route>
@@ -100,4 +100,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default withRouter(App);

@@ -83,6 +83,8 @@ class index extends Component {
 
 
 
+    // change changeHandler function  
+
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -90,95 +92,84 @@ class index extends Component {
 
     }
 
-    submitClick = () => {
-         if(this.state.name.length <=2){
-                alert("Please Enter your Full Name")
-                return false
-            }
-            if(!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)){
-                alert("enter Email")
-                return false
-            }
-            if(this.state.message.length <= 5){
-                alert("enter Message")
-                return false
-            }
+    // submit click function 
+
+    submitClick = (ev) => {
+        if (this.state.name.length <= 2) {
+            alert("Please Enter your Full Name")
+
+        }
+        else if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)) {
+            alert("Please Enter Email")
+
+        }
+        else if (this.state.message.length <= 5) {
+            alert("Please Enter  Your Message")
+
+        }
+        else {
+            // const data = {
+            //     name: this.state.name,
+            //     email: this.state.email,
+            //     message: this.state.message
+            // }
+            // ev.preventDefault();
+            // const form = ev.target;
+            // const data = new FormData(form);
+            // const xhr = new XMLHttpRequest();
+            // xhr.open(form.method, form.action);
+            // xhr.setRequestHeader("Accept", "application/json");
+            // xhr.onreadystatechange = () => {
+            //     if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            //     if (xhr.status === 200) {
+            //         form.reset();
+            //         this.setState({ status: "SUCCESS" });
+            //     } else {
+            //         this.setState({ status: "ERROR" });
+            //     }
+            // };
+            // xhr.send(data);
+        
+        this.setState({
+            name: '',
+            email: '',
+            message: ''
+        })
+        alert("Thanks For contacting Me !!")
     }
 
-
- 
-
-    // // submit btn click check validation 
-
-    //     submitClick = () => {
-
-    //         // name 
-    //         if (this.state.name.length < 3) {
-    //             this.setState({
-    //                 nameError: true,
-    //                 errorMessage: '** please Enter Your Full Name **'
-    //             })
-    //         }
-
-    //         // email 
-    //         if (this.state.email < 3 && !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)) {
-    //             this.setState({
-    //                 EmailError: true,
-    //                 errorMessage: '** please Enter Valid Email Address **'
-    //             })
-    //         }
-
-    //         if (this.state.message < 8) {
-    //             this.setState({
-    //                 messageError: true,
-    //                 errorMessage: '** please Enter your Message **'
-    //             })
-    //         }
-    //         else{
-    //             this.setState({
-    //                 EmailError: false,
-    //                 nameError: false,
-    //                 messageError: false,
-    //                 errorMessage: false
-    //             } , () => {
-    //                 alert("Thanks for contacting me !!")
-    //             })
+}
 
 
-    //         }
+render() {
+    return (
+        <div>
+            <Heading title="contact Me" color="#000" />
+            <FromWrapper>  
+                {/* <form
+                    onSubmit={this.submitClick}
+                    action="https://formspree.io/mdokgpgo"
+                    method="POST"
+                >
+                             */}
+                <Input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.changeHandler} />
+                {this.state.nameError && <p className="error_msg">{this.state.errorMessage}</p>}
+                <Gap h="10px" />
+                <Input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.changeHandler} />
+                {this.state.EmailError && <p className="error_msg">{this.state.errorMessage}</p>}
+                <Gap h="10px" />
+                <textarea type="text" name="message" value={this.state.message} placeholder="Message" onChange={this.changeHandler} />
+                {this.state.messageError && <p className="error_msg">{this.state.errorMessage}</p>}
+                <Gap h="10px" />
+                <button className="send" onClick={this.submitClick}>Send</button>
+                <Gap h="100px" />
+                {/* </form> */}
+            </FromWrapper>
 
-    //         // document.body.style.overflow = "hidden";
-    //         // document.body.style.marginRight = "16px";
-    //     }
+        </div>
 
-
-
-
-
-
-
-    render() {
-        return (
-            <div>
-                <Heading title="contact Me" color="#000" />
-                <FromWrapper>
-                    <Input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.changeHandler} />
-                    {this.state.nameError && <p className="error_msg">{this.state.errorMessage}</p>}
-                    <Gap h="10px" />
-                    <Input type="text" name="email" value={this.state.email} placeholder="Email" onChange={this.changeHandler} />
-                    {this.state.EmailError && <p className="error_msg">{this.state.errorMessage}</p>}
-                    <Gap h="10px" />
-                    <textarea type="text" name="message" value={this.state.message} placeholder="Message" onChange={this.changeHandler} />
-                    {this.state.messageError && <p className="error_msg">{this.state.errorMessage}</p>}
-                    <Gap h="10px" />
-                    <button className="send" onClick={this.submitClick}>Send</button>
-                    <Gap h="100px" />
-                </FromWrapper>
-
-            </div>
-
-        )
-    }
+    )
+}
 }
 
 

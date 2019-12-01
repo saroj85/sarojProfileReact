@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from '../Head'
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import {withRouter} from 'react-router-dom'
 
 const Header = styled.header`
     width: 100%;
@@ -27,6 +27,16 @@ const LogoWrapper = styled.div`
         font-weight: 700;
         a{
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .sm_text{
+                font-size: 11px;
+                font-weight: 200;
+                letter-spacing: 2px;
+                color: #00ffcd;
+            }
         }
     }
 `;
@@ -47,6 +57,11 @@ const NavListWrapper = styled.div`
                 font-weight: bold;
                 color: #fff;
                 text-decoration: none;
+                padding: 12px 16px;
+                border-radius: 4px;
+                &.active{
+                    background:#18bc9c;
+                }
 
             }
         }
@@ -55,18 +70,48 @@ const NavListWrapper = styled.div`
 
 
 class index extends Component {
+    state ={
+        name: 'saroj'
+    }
 
+
+    test =() =>{
+        let {name} = this.state;
+        name ="hello";
+        console.log("INNER NAME", name)
+
+        return {name}
+
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
+        window.addEventListener('screen', this.handleScroll, { passive: true });
+        this.test()
+        
+      }
+      componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('screen', this.handleScroll)
+      }
+      handleScroll = () => {
+        this.setState({
+          scrollY: window.scrollY
+        }, () => console.log("SCREEN Y", this.state.scrollY))
+    }
+
+      
     render() {
-        console.log("HEADER", this.props)
+        console.log("HEADER", this.state)
         return (
             <div>
                 <Header>
-                    <LogoWrapper><span className="logo"><Link to="/">Iam,saroj</Link></span></LogoWrapper>
+                    <LogoWrapper><span className="logo"><NavLink to="/"><span>Iam,saroj</span><span className="sm_text">React Js Developer</span></NavLink></span></LogoWrapper>
                     <NavListWrapper>
                         <ul>
-                            <li><Link  to="/portfolio">PORTFOLIO</Link></li>
-                            <li><Link  to="/about">ABOUT</Link></li>
-                            <li><Link  to="/contact">CONTACT</Link></li>
+                            <li><NavLink to="/" exact={true}>HOME</NavLink></li>
+                            <li><NavLink to="/portfolio">PORTFOLIO</NavLink></li>
+                            <li><NavLink to="/about">ABOUT</NavLink></li>
+                            <li><NavLink to="/contact">CONTACT</NavLink></li>
                         </ul>
                     </NavListWrapper>
 
@@ -76,8 +121,7 @@ class index extends Component {
     }
 }
 
-
-export default index
+export default withRouter(index);
 
 
 
