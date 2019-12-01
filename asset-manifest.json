@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sarojProfileReact/static/css/main.fd81a126.chunk.css",
-    "main.js": "/sarojProfileReact/static/js/main.d2237095.chunk.js",
-    "main.js.map": "/sarojProfileReact/static/js/main.d2237095.chunk.js.map",
+    "main.js": "/sarojProfileReact/static/js/main.a05097bf.chunk.js",
+    "main.js.map": "/sarojProfileReact/static/js/main.a05097bf.chunk.js.map",
     "runtime~main.js": "/sarojProfileReact/static/js/runtime~main.09861d14.js",
     "runtime~main.js.map": "/sarojProfileReact/static/js/runtime~main.09861d14.js.map",
-    "static/js/2.86d88edc.chunk.js": "/sarojProfileReact/static/js/2.86d88edc.chunk.js",
-    "static/js/2.86d88edc.chunk.js.map": "/sarojProfileReact/static/js/2.86d88edc.chunk.js.map",
+    "static/js/2.f2a24e44.chunk.js": "/sarojProfileReact/static/js/2.f2a24e44.chunk.js",
+    "static/js/2.f2a24e44.chunk.js.map": "/sarojProfileReact/static/js/2.f2a24e44.chunk.js.map",
     "index.html": "/sarojProfileReact/index.html",
-    "precache-manifest.858b4539fdebe4aeabc1caf697387ada.js": "/sarojProfileReact/precache-manifest.858b4539fdebe4aeabc1caf697387ada.js",
+    "precache-manifest.f84efbc8317c3bf2af4b03a3357cff1a.js": "/sarojProfileReact/precache-manifest.f84efbc8317c3bf2af4b03a3357cff1a.js",
     "service-worker.js": "/sarojProfileReact/service-worker.js",
     "static/css/main.fd81a126.chunk.css.map": "/sarojProfileReact/static/css/main.fd81a126.chunk.css.map"
   }
