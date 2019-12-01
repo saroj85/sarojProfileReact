@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://gitname.github.io/sarojProfileReact",
+  "homepage": "https://saroj85.github.io/sarojProfileReact/",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter , useHistory} from 'react-router-dom';
+import { BrowserRouter , useHistory, HashRouter} from 'react-router-dom';
 
 
 
-ReactDOM.render(< BrowserRouter history={useHistory}><App/></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(< HashRouter history={useHistory}><App/></HashRouter>, document.getElementById('root'));
 // ReactDOM.render((
 //     <Router history = {browserHistory}>
 //        <Route path = "/" component = {App}>
