@@ -96,12 +96,11 @@ class index extends Component {
       handleScroll = () => {
         this.setState({
           scrollY: window.scrollY
-        }, () => console.log("SCREEN Y", this.state.scrollY))
+        })
     }
 
       
     render() {
-        console.log("HEADER", this.state)
         return (
             <div>
                 <Header>

@@ -88,7 +88,7 @@ class index extends Component {
     changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
-        }, console.log("hey", this.state))
+        })
 
     }
 

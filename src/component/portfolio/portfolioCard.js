@@ -99,7 +99,6 @@ class portfolioCard extends Component {
 
     render() {
         const { logo, title, bigImage, url, description, skill } = this.props.item;
-        console.log("logo", logo)
         return (
             <div>
                 <Card

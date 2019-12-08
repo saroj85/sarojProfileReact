@@ -10,7 +10,7 @@ import Footer from './component/footer';
 import Gap from './component/shared/gap';
 import PopUp from './component/shared/popUp';
 import PAGENOTFOUND from './component/notFound';
-
+import A from './component/test/a';
 import styled from 'styled-components';
 import './App.css'
 
@@ -36,22 +36,31 @@ const BackToTop = styled.div`
     font-size: 21px;
 `;
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+  
 
     }
+
+    console.log("i am App JS constructor")
     this.myRef = React.createRef()   // Create a ref object 
   }
 
   componentDidMount() {
     // this.myRef.current.scrollTo(0, 0);
     // console.log("JJJ", this.myRef.current.clientHeight)
+        console.log("i am App Component ComponentDidMount")
 
   }
 
-
+  static getDerivedStateFromProps(props, state){
+    console.log("i am App Com getDerivedStateFromProps");
+    return false
+  }
 
 
   scrollStep = () => {
@@ -66,15 +75,13 @@ class App extends Component {
     this.setState({ intervalId: intervalId });
   }
 
-
-
-
   render() {
-    console.log("propsNew",this.props)
+    console.log("i am App JS Render")
     return (
       <Router >
         <div className="App">
           <Header/>
+          {/* <A name="saroj kumar" /> */}
           <Switch>
             <Route exact={true} path="/">
               <HomePages />

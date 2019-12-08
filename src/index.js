@@ -6,7 +6,7 @@ import { BrowserRouter , useHistory, HashRouter} from 'react-router-dom';
 
 
 
-ReactDOM.render(< HashRouter history={useHistory}><App/></HashRouter>, document.getElementById('root'));
+ReactDOM.render(<HashRouter history={useHistory}><App/></HashRouter>, document.getElementById('root'));
 // ReactDOM.render((
 //     <Router history = {browserHistory}>
 //        <Route path = "/" component = {App}>
