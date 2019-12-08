@@ -97,7 +97,7 @@ class App extends Component {
             <Route  exact path="/contact">
               <ContactPages />
             </Route>
-            <Route component={PAGENOTFOUND}></Route>
+            {/* <Route component={PAGENOTFOUND}></Route> */}
           </Switch>
           <Gap h="40px" />
           <Footer />

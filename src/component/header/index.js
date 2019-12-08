@@ -108,9 +108,9 @@ class index extends Component {
                     <NavListWrapper>
                         <ul>
                             <li><NavLink to="/" exact={true}>HOME</NavLink></li>
-                            <li><NavLink to="/portfolio">PORTFOLIO</NavLink></li>
-                            <li><NavLink to="/about">ABOUT</NavLink></li>
-                            <li><NavLink to="/contact">CONTACT</NavLink></li>
+                            <li><NavLink exact={true} to="/portfolio">PORTFOLIO</NavLink></li>
+                            <li><NavLink exact={true} to="/about">ABOUT</NavLink></li>
+                            <li><NavLink exact={true} to="/contact">CONTACT</NavLink></li>
                         </ul>
                     </NavListWrapper>
 
